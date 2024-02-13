@@ -5,7 +5,7 @@ import Layout from "@/app/components/common/Layout";
 import {IPlace} from "@/app/type/place.type";
 import {NextPage} from "next";
 import {GetStaticProps} from "next";
-import HeadingSection from "@/app/components/elements/searchSection/HeadingSection";
+import HeadingSection from "@/app/components/elements/home/headingSection/HeadingSection";
 import Search from "@/app/components/common/search/Search";
 import Filters from "@/app/components/elements/filters/Filters";
 
