@@ -23,7 +23,9 @@ const Home: NextPage<IHome> = ({places}) => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Layout className={`${styles.main} ${inter.className}`}>
-                <SearchSection/>
+                <div className={styles.searchSection}>
+                    <SearchSection/>
+                </div>
             </Layout>
         </>
     );
