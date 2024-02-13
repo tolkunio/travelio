@@ -1,4 +1,6 @@
 import s from './Filters.module.scss';
+import cn from 'classnames';
+import {useState} from "react";
 
 const cities = [
     {
@@ -10,13 +12,31 @@ const cities = [
     {
         location: 'Norway'
     },
+    {
+        location: 'Bora Bora'
+    },
+    {
+        location: 'Maul'
+    },
+    {
+        location: 'Tahiti'
+    },
 
 ]
 const Filters = () => {
+    const [filter, setFilter] = useState('');
     return (
         <div className={s.filters}>
             {cities.map(city => (
-                <button key={city.location} className={s.btn}>
+                <button
+                    onClick={() => {
+                        setFilter(city.location)
+                    }}
+                    key={city.location}
+                    className={cn({
+                        [s.active]: city.location === filter
+                    })}
+                >
                     {city.location}
                 </button>
             ))}

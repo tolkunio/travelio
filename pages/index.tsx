@@ -5,7 +5,9 @@ import Layout from "@/app/components/common/Layout";
 import {IPlace} from "@/app/type/place.type";
 import {NextPage} from "next";
 import {GetStaticProps} from "next";
-import SearchSection from "@/app/components/elements/searchSection/SearchSection";
+import HeadingSection from "@/app/components/elements/searchSection/HeadingSection";
+import Search from "@/app/components/common/search/Search";
+import Filters from "@/app/components/elements/filters/Filters";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -23,8 +25,10 @@ const Home: NextPage<IHome> = ({places}) => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Layout className={`${styles.main} ${inter.className}`}>
-                <div className={styles.searchSection}>
-                    <SearchSection/>
+                <HeadingSection/>
+                <div className={styles.content}>
+                    <Search/>
+                    <Filters/>
                 </div>
             </Layout>
         </>
