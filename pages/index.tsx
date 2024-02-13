@@ -8,6 +8,8 @@ import {GetStaticProps} from "next";
 import HeadingSection from "@/app/components/elements/home/headingSection/HeadingSection";
 import Search from "@/app/components/common/search/Search";
 import Filters from "@/app/components/elements/filters/Filters";
+import {API_URL} from "@/app/constants";
+import PopularPlaces from "@/app/components/elements/home/popularPlaces/PopularPlaces";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -29,6 +31,7 @@ const Home: NextPage<IHome> = ({places}) => {
                 <div className={styles.content}>
                     <Search/>
                     <Filters/>
+                    <PopularPlaces places={places}/>
                 </div>
             </Layout>
         </>
@@ -37,7 +40,7 @@ const Home: NextPage<IHome> = ({places}) => {
 
 export const getStaticProps: GetStaticProps =
     async () => {
-        const result = await fetch('http://localhost:3000/api/places');
+        const result = await fetch(`${API_URL}/places`);
         const places: IPlace[] = await result.json();
         return {
             props: {
