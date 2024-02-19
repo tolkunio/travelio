@@ -1,13 +1,41 @@
 import s from './Search.module.scss';
 import {useState} from "react";
+import {ChangeEvent} from "react";
+import {IPlace} from "@/app/type/place.type";
+import {FC} from "react";
+import {TypeSetState} from "@/app/type/common.type";
 
-const Search = () => {
+interface ISearch {
+    setPlaces: TypeSetState<IPlace[]>;
+    initialPlaces:IPlace[];
+    setIsLoading:TypeSetState<boolean>
+}
+
+const Search: FC<ISearch> = ({setPlaces,initialPlaces,setIsLoading}) => {
     const [searchTerm, setSearchTerm] = useState('');
+    const seachHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setIsLoading(true);
+        const value=e.target.value
+        setSearchTerm(value);
+        setTimeout(()=>{
+            if(value){
+                setPlaces(initialPlaces.filter(
+                    place =>
+                        place.location.city.toLowerCase().includes(value) ||
+                        place.location.country.toLowerCase().includes(value)
+                ))
+            }else{
+                setPlaces(initialPlaces);
+                setIsLoading(false)
+            }
+        },1600)
+
+    }
     return (
         <div className={s.search}>
             <span className='material-icons-outlined'>search</span>
             <input type={"text"}
-                   onChange={e => setSearchTerm(e.target.value)}
+                   onChange={seachHandler}
                    placeholder={'Search place...'}
                    value={searchTerm}/>
         </div>

@@ -1,6 +1,9 @@
 import s from './Filters.module.scss';
 import cn from 'classnames';
 import {useState} from "react";
+import {TypeSetState} from "@/app/type/common.type";
+import {IPlace} from "@/app/type/place.type";
+import {FC} from "react";
 
 const cities = [
     {
@@ -23,7 +26,10 @@ const cities = [
     },
 
 ]
-const Filters = () => {
+interface IFilter{
+    setPlaces:TypeSetState<IPlace[]>
+}
+const Filters:FC<IFilter>= ({setPlaces}) => {
     const [filter, setFilter] = useState('');
     return (
         <div className={s.filters}>

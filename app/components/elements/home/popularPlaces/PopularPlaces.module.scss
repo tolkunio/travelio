@@ -11,6 +11,9 @@
     font-weight: 700;
   }
 }
+.skeleton{
+  margin-top: -2rem;
+}
 .place {
   display: block;
   margin-bottom: 3rem;
@@ -45,3 +48,11 @@
     color: var(--white);
   }
 }
+.notFound{
+  font-size: 2.4rem;
+  color: var(--white);
+  font-weight: bold;
+  opacity: .6;
+  font-style: italic; 
+}
+

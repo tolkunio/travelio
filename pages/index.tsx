@@ -10,14 +10,18 @@ import Search from "@/app/components/common/search/Search";
 import Filters from "@/app/components/elements/filters/Filters";
 import {API_URL} from "@/app/constants";
 import PopularPlaces from "@/app/components/elements/home/popularPlaces/PopularPlaces";
+import {useState} from "react";
 
 const inter = Inter({subsets: ["latin"]});
 
 interface IHome {
-    places: IPlace[]
+    initialPlaces: IPlace[]
 }
 
-const Home: NextPage<IHome> = ({places}) => {
+const Home: NextPage<IHome> = ({initialPlaces}) => {
+    const [places, setPlaces]=useState<IPlace[]>(initialPlaces);
+    const [isLoading,setIsLoading]=useState(false);
+
     return (
         <>
             <Head>
@@ -29,9 +33,9 @@ const Home: NextPage<IHome> = ({places}) => {
             <Layout className={`${styles.main} ${inter.className}`}>
                 <HeadingSection/>
                 <div className={styles.content}>
-                    <Search/>
-                    <Filters/>
-                    <PopularPlaces places={places}/>
+                    <Search setPlaces={setPlaces} initialPlaces={initialPlaces} setIsLoading={setIsLoading}/>
+                    <Filters setPlaces={setPlaces}/>
+                    <PopularPlaces places={places} isLoading={isLoading}/>
                 </div>
             </Layout>
         </>
@@ -41,10 +45,10 @@ const Home: NextPage<IHome> = ({places}) => {
 export const getStaticProps: GetStaticProps =
     async () => {
         const result = await fetch(`${API_URL}/places`);
-        const places: IPlace[] = await result.json();
+        const initialPlaces: IPlace[] = await result.json();
         return {
             props: {
-                places
+                 initialPlaces
             }
         }
     };
