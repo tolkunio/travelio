@@ -1,5 +1,4 @@
-import React from 'react';
-
+import s from './Heading.module.scss'
 const Heading = () => {
     return (
         <div>

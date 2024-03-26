@@ -1,4 +1,4 @@
-import React from 'react';
+import s from './Detail.module.scss'
 
 const Detail  = () => {
     return (
