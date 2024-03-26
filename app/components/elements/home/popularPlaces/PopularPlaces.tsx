@@ -5,14 +5,12 @@ import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 
-
 interface IPopularPlaces {
     places: IPlace[],
     isLoading: boolean
 }
 
 const PopularPlaces: FC<IPopularPlaces> = ({places, isLoading}) => {
-    console.log(isLoading)
     return (
         <div className={s.popularPlaces}>
             <h2>Popular places</h2>
@@ -27,7 +25,7 @@ const PopularPlaces: FC<IPopularPlaces> = ({places, isLoading}) => {
                         />
                     </div>
                     :
-                    places.length?(
+                    places.length!=0?(
                     places.map(place => (
                         <Link key={place.slug} href={`/place/${place.slug}`}
                               className={s.place}
@@ -37,7 +35,7 @@ const PopularPlaces: FC<IPopularPlaces> = ({places, isLoading}) => {
                                 {place.location.city + ', ' + place.location.country}
                             </div>
                         </Link>
-                    ))):<div className={s.notFound}>Not found</div>
+                    ))):<div className={s.notFound}>Not found!</div>
             }
         </div>
     );

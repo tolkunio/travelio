@@ -1,7 +1,5 @@
 import s from './HeadingSection.module.scss';
 import {FC} from "react";
-import Search from "@/app/components/common/search/Search";
-import Filters from "@/app/components/elements/filters/Filters";
 import mapImg from '../../../../../assets/images/map.png';
 
 const HeadingSection: FC = () => {

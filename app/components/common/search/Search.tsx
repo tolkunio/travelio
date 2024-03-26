@@ -14,8 +14,9 @@ interface ISearch {
 const Search: FC<ISearch> = ({setPlaces,initialPlaces,setIsLoading}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const seachHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setIsLoading(true);
-        const value=e.target.value
+            setIsLoading(true);
+        const value=e.target.value;
+
         setSearchTerm(value);
         setTimeout(()=>{
             if(value){

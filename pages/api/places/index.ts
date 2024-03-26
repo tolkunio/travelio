@@ -1,7 +1,7 @@
 import {IPlace} from "@/app/type/place.type";
 import {NextApiRequest, NextApiResponse} from "next";
 
-const places:IPlace[] = [
+export const places:IPlace[] = [
     {
         slug:'tokyo',
         location:{
@@ -33,4 +33,5 @@ const places:IPlace[] = [
 ];
 export default function handler(req: NextApiRequest, res: NextApiResponse<IPlace>) {
     res.status(200).json(places);
-}
+};
+
