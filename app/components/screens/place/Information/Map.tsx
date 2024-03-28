@@ -1,8 +1,8 @@
-import React from 'react';
+import s from './Information.module.scss'
 
 const Map = () => {
     return (
-        <div>
+        <div className={s.map}>
 
         </div>
     );
