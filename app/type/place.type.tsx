@@ -13,3 +13,7 @@ export interface IPlace {
     googleMapLink:string,
     mapImage:string
 }
+export interface IFavorites{
+    slug:string,
+    name:string
+}

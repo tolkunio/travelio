@@ -1,9 +1,14 @@
 import s from './Heading.module.scss'
-const Heading = () => {
-    return (
-        <div>
+import {FC} from "react";
+import Favorites from "@/app/components/screens/place/heading/Favorites";
+import BackButton from "@/app/components/screens/place/heading/BackButton";
 
-        </div>
+const Heading: FC = () => {
+    return (
+      <div className={s.headingWrapper}>
+          <BackButton/>
+          <Favorites/>
+      </div>
     );
 };
 
