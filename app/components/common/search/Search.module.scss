@@ -1,5 +1,6 @@
+@import "styles/variables";
 .search {
-  background-color: rgba(0, 0, 0, 0.3);
+  @include glassEffect;
   border-radius: 3rem;
   transition: border .4s ease;
   padding: 0 1rem;

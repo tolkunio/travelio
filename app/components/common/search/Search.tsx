@@ -1,8 +1,7 @@
 import s from './Search.module.scss';
-import {useState} from "react";
+import {useState,FC} from "react";
 import {ChangeEvent} from "react";
 import {IPlace} from "@/app/type/place.type";
-import {FC} from "react";
 import {TypeSetState} from "@/app/type/common.type";
 
 interface ISearch {

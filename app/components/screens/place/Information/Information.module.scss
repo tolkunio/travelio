@@ -1,9 +1,11 @@
+@import "styles/variables";
 .wrapper{
   border-radius: 15px;
   padding: 1.5rem;
-  background-color:rgba(255,255,255,0.05);
   width: 80%;
   margin: 2rem 3rem;
+  @include glassEffect;
+
 }
 .title{
   display: flex;
